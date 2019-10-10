@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Форма регистрации</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="css/style.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1 class="visually-hidden">Форма регистрации нового пользователя</h1>
+    <header class="header">
+      <h2 class="visually-hidden">Регистрация на сайте</h2>
+    </header>
+    <main class="main">
+      <h2 class="visually-hidden">Перейти к регистрации</h2>
+      <button class="button button__open-form" type="button">Регистрация</button>
+    </main>
+    <footer class="footer">
+      <h2 class="visually-hidden">Форма регистрации</h2>
+    </footer>
+    <form class="popup popup__form hidden">
+      <div class="form form__wrapper">
+        <h2 class="form-heading">Регистрация</h2>
+        <button class="popup-close" aria-label="Закрыть форму">
+          <span class="visually-hidden">Закрыть форму</span>
+        </button>
+        <div class="form-items">
+          <h3 class="visually-hidden">Поля ввода информации</h3>
+          <p class="form-input form-input__email">
+            <label class="email label email__input-label" for="email">E-mail</label>
+            <input class="email input email__input" maxlength="250" type="email" name="user-email" id="email" required="">
+          </p>
+          <p class="form-input form-input__nickname">
+            <label class="nickname label nickname__input-label" for="nickname">Никнейм</label>
+            <input class="nickname input nickname__input" maxlength="250" type="text" name="user-nickname" id="nickname" placeholder="frontendDeveloper" required="">
+          </p>
+          <p class="form-input form-input__password">
+            <label class="password label password__input-label" for="password">Пароль</label>
+            <input class="password input password__input password__input-first" maxlength="250" type="password" name="user-password" id="password" required="">
+          </p>
+          <div class="password-rules">
+            <h4 class="rules-heading">Пароль должен содержать:</h4>
+            <ul class="list-reset rules-list">
+              <li class="rules-item">
+                <span class="rule-indicator first-rule"></span>
+                <span class="rule rule__text">от 6 до 32 символов</span>
+              </li>
+              <li class="rules-item">
+                <span class="rule-indicator second-rule"></span>
+                <span class="rule rule__text">цифру</span>
+              </li>
+              <li class="rules-item">
+                <span class="rule-indicator third-rule"></span>
+                <span class="rule rule__text">заглавную и строчную буквы</span>
+              </li>
+            </ul>
+          </div>
+          <p class="form-input form-input__password confirm-password">
+            <span class="password-error hidden">Пароль не должен совпадать с Никнеймом</span>
+            <span class="password-match hidden">Введенные пароли не совпадают</span>
+            <label class="password label password__input-label" for="password-repeat">Пароль еще раз</label>
+            <input class="password input password__input password-confirm" maxlength="250" type="password" name="user-password-repeat" id="password-repeat" required="">
+          </p>
+          <div class="confirm confirm__checkbox">
+            <label class="confirm-checkbox">
+            <input type="checkbox" name="license" class="visually-hidden" required="">
+            <span class="confirm-indicator"></span>
+            <span class="confirm-text">Я принимаю условия <a class="license-link" aria-label="Лицензионное соглашение" href="#">Пользовательского соглашения</a></span>
+            </label>
+          </div>
+          <div class="send send-next">
+            <button class="button-send" type="submit" disabled="">Далее</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form class="popup-extra popup__form-extra hidden">
+      <div class="form-extra form__wrapper">
+        <h2 class="form-extra-heading">Регистрация</h2>
+        <button class="popup-close-extra" aria-label="Закрыть форму">
+          <span class="visually-hidden">Закрыть форму</span>
+        </button>
+        <div class="form-extra-items">
+          <h3 class="visually-hidden">Поля ввода информации</h3>
+          <div class="form-input form-input__sex">
+            <h4 class="sex-heading extra-heading"> Укажите Ваш пол:</h4>
+            <div class="inputs sex-inputs">
+              <label class="sex-label" for="man">Мужской</label>
+              <input class="sex sex-man" type="radio" name="sex" value="male" id="man">
+              <label class="sex-label" for="woman">Женский</label>
+              <input class="sex sex-woman" type="radio" name="sex" value="female" id="woman">
+            </div>
+          </div>
+          <div class="form-input form-input__education">
+            <h4 class="education-heading extra-heading">Укажите Ваше образование:</h4>
+            <div class="inputs education-inputs">
+              <label class="education-label" for="scientist">Ученая степень</label>
+              <input class="input-education" type="radio" name="education" value="Ученая степень" id="scientist">
+              <label class="education-label" for="high">Высшее</label>
+              <input class="input-education" type="radio" name="education" value="Высшее" id="high">
+              <label class="education-label" for="almost-high">Незаконченное высшее</label>
+              <input class="input-education" type="radio" name="education" value="Незаконченное высшее" id="almost-high">
+              <label class="education-label" for="middle">Среднее</label>
+              <input class="input-education" type="radio" name="education" value="Среднее" id="middle">
+              <label class="education-label" for="almost-middle">Незаконченное среднее</label>
+              <input class="input__education" type="radio" name="education" value="Незаконченное среднее" id="almost-middle">
+            </div>
+          </div>
+          <p class="form-input form-input__info">
+            <label class="label info-label" for="info-area">Расскажите о себе:</label>
+            <textarea class="input info-area" name="user-question" id="info-area" rows="6" placeholder="Расскажите нам о себе"></textarea>
+          </p>
+          <div class="form-input form-input__subscription">
+            <h4 class="subscription-heading extra-heading">Подпишитесь на наши рубрики:</h4>
+            <div class="inputs subscription-inputs">
+              <label class="subscription-label" for="news">Новости</label>
+              <input class="input-subscription" type="checkbox" name="subscription" value="Новости" id="news" checked="">
+              <label class="subscription-label" for="politics">Политика</label>
+              <input class="input-subscription" type="checkbox" name="subscription" value="Политика" id="politics">
+              <label class="subscription-label" for="economy">Экономика</label>
+              <input class="input-subscription" type="checkbox" name="subscription" value="Экономика" id="economy">
+              <label class="subscription-label" for="sport">Спорт</label>
+              <input class="input-subscription sport" type="checkbox" name="subscription" value="Спорт" id="sport">
+              <label class="subscription-label" for="science">Наука</label>
+              <input class="input-subscription science" type="checkbox" name="subscription" value="Наука" id="science">
+            </div>
+          </div>
+          <div class="send">
+            <button class="button-send extra-send" type="submit">Зарегестрироваться</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="js/script.js"></script>
+  </body>
+</html>
