@@ -10,7 +10,7 @@ let itemsCountRule = document.querySelector(".first-rule");
 let lettersRule = document.querySelector(".third-rule");
 let numbersRule = document.querySelector(".second-rule");
 let submitButton = document.querySelector(".button-send");
-let extraInfoForm = document.querySelector(".popup__form-extra");
+let extraInfoForm = document.querySelector(".popup-form-extra");
 let json;
 let jsonAll;
 
@@ -229,25 +229,20 @@ popup.addEventListener("submit", function(event) {
 
 // Отправляем данные в консоль
 
-extraInfoForm.addEventListener("submit", function(event) {
+document.querySelector(".extra-send").addEventListener("click", function(event) {
 	event.preventDefault();
-	let extraFormData = new FormData(this);
+	let extraFormData = new FormData(extraInfoForm);
   let object = {};
   extraFormData.forEach((value, key) => {
     object[key] = value
   });
   let allInfo = Object.assign(json, object);
  	jsonAll = JSON.stringify(allInfo);
-}, false);
-
-document.querySelector(".extra-send").addEventListener("click", function (evt) {
-	evt.preventDefault();
-	console.log(jsonAll);
+ 	console.log(jsonAll);
   extraInfoForm.classList.add("hidden");
 	openFormButton.style.backgroundColor = "green";
 	openFormButton.setAttribute("disabled", true);
-
-});
+}, false);
 
 // Отменяем отправку данных по Enter
 
@@ -284,18 +279,18 @@ let onOverlayClick = function(evt) {
   if (!popup.contains(evt.target)) { 
     popup.classList.add("hidden");
     popup.reset();
-   	numbersRule.classList.remove("rule-ok","rule-error");
+	} 
+
+	if (popup.classList.contains("hidden")) {
+		numbersRule.classList.remove("rule-ok","rule-error");
    	lettersRule.classList.remove("rule-ok","rule-error");
    	itemsCountRule.classList.remove("rule-ok","rule-error");
-	} 
+	}
 
 	if (!extraInfoForm.contains(evt.target)) { 
     extraInfoForm.classList.add("hidden");
     extraInfoForm.reset();
-   	numbersRule.classList.remove("rule-ok","rule-error");
-   	lettersRule.classList.remove("rule-ok","rule-error");
-   	itemsCountRule.classList.remove("rule-ok","rule-error");
-	} 
+	}
 }
 
 // Закрытие модального окна по клику на кнопку "Закрыть"
